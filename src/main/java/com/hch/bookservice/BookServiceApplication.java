@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @SpringBootApplication
-//@EnableDiscoveryClient
+@EnableDiscoveryClient(autoRegister = true)
 @RestController
 public class BookServiceApplication {
 

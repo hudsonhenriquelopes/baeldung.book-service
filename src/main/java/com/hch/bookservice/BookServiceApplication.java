@@ -15,23 +15,24 @@ import java.util.List;
 @RestController
 public class BookServiceApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(BookServiceApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(BookServiceApplication.class, args);
+    }
 
 
-	private final List<Book> bookList = Arrays.asList(
-			new Book(1L, "Baeldung goes to the market", "Tim Schimandle"),
-			new Book(2L, "Baeldung goes to the park", "Slavisa")
-	);
-	
-	@GetMapping
-	public List<Book> findAllBooks() {
-		return bookList;
-	}
-	@GetMapping("/{bookId}")
-	public Book findBook(@PathVariable Long bookId) {
-		return bookList.stream().filter(b -> b.getId().
-				equals(bookId)).findFirst().orElse(null);
-	}
+    private final List<Book> bookList = Arrays.asList(
+            new Book(1L, "Baeldung goes to the market", "Tim Schimandle"),
+            new Book(2L, "Baeldung goes to the park", "Slavisa")
+    );
+
+    @GetMapping
+    public List<Book> findAllBooks() {
+        return bookList;
+    }
+
+    @GetMapping("/{bookId}")
+    public Book findBook(@PathVariable Long bookId) {
+        return bookList.stream().filter(b -> b.getId().
+                equals(bookId)).findFirst().orElse(null);
+    }
 }
